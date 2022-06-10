@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 
 from app.EmailBackEnd import EmailBackEnd
 
@@ -28,8 +29,12 @@ def doLogin(request):
                 return HttpResponse("This is Student Panel")
             else:
                 # message
+                messages.error(request,"Email or Password is invalid.!")
                 return redirect('login')
-
+        else:
+                # message
+                messages.error(request,"Email or Password is invalid.!")
+                return redirect('login')
     else:
         return redirect('login')            
         

@@ -26,5 +26,8 @@ urlpatterns = [
     
     # login path goes here
     path('',views.LOGIN, name='login'),
-    path('dologin/',views.doLogin,name='doLogin')
+    path('dologin/',views.doLogin,name='doLogin'),
+    # This is HOD panel url
+    path('hod/home', HOD_views.HOME, name="home")
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
